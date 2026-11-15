@@ -1,0 +1,95 @@
+# Copy this file to data/search.yaml and edit it for your search.
+
+# What you're looking for, in plain words. The ranker reads this, so include
+# the kind of work, companies, and mission that interest you.
+description: >-
+  Software engineering roles in backend engineering, data and streaming
+  platforms, or platform and site reliability engineering.
+
+# What matters most to you, in priority order. The ranker weighs them in order.
+preferences:
+  - Backend or platform work with real ownership of services.
+  - Roles asking for 3 years of experience or fewer.
+
+roles:
+  - Backend engineering
+  - Data / streaming
+  - Platform / SRE
+
+# Postings in these cities match. Remote roles open to Canada match when
+# remote_canada is true.
+cities:
+  - Toronto
+  - Vancouver
+remote_canada: true
+
+work_authorization:
+  canada: true
+  united_states: false
+  needs_sponsorship_in_canada: false
+
+# Companies listed here are never checked. The ranker also rejects jobs in
+# excluded industries, and excludes a company when that industry is its main
+# business.
+excluded_companies: []
+excluded_industries: []
+
+# Postings with a stated top of range below min_salary are rejected. Postings
+# without pay aren't penalized. Leave these out to ignore pay.
+min_salary: 100000
+target_salary: [110000, 130000]
+salary_currency: CAD
+
+# Postings requiring more than max_years_required years are rejected, both by a
+# free text check and by the ranker.
+max_years_required: 4
+preferred_years_required: 3
+
+# Free title filters, applied before any paid ranking. A title must contain an
+# include term and no exclude term. Add "senior" and "sr" to drop senior titles.
+title_include: [engineer, developer, sre, devops, reliability]
+title_exclude:
+  - staff
+  - principal
+  - lead
+  - manager
+  - director
+  - head
+  - vp
+  - vice president
+  - intern
+  - internship
+  - co-op
+  - coop
+  - new grad
+  - sales
+  - solutions
+  - support
+  - customer
+  - field
+  - recruiter
+  - advocate
+  - relations
+  - ios
+  - android
+  - mobile
+  - frontend
+  - front-end
+  - front end
+  - hardware
+  - firmware
+
+max_posting_age_days: 30
+
+# Jobs scoring below this (0 to 100) are never selected.
+min_score: 60
+
+# Web searches used to find companies that aren't in companies.yaml yet.
+# Each query is skipped if it ran in the last 14 days.
+search_queries:
+  - backend engineer Toronto
+  - backend engineer Vancouver
+  - software engineer Kafka Canada
+  - data engineer streaming Toronto
+  - platform engineer remote Canada
+  - site reliability engineer Toronto

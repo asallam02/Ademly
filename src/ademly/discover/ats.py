@@ -55,8 +55,11 @@ def html_to_text(markup: str) -> str:
     return text.strip()
 
 
-def _display_name(token: str) -> str:
+def display_name(token: str) -> str:
     return token.replace("-", " ").replace("_", " ").title()
+
+
+_display_name = display_name
 
 
 def _unique(items: list[str]) -> list[str]:

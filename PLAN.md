@@ -144,12 +144,14 @@ A job in any state past `selected` is never picked again. The user records the o
 
 ### Stage 1: Discover and select
 
-1. Convert the user's description into a structured `SearchSpec`: titles, seniority, locations, remote policy, must-haves, exclusions.
-2. Gather candidates from two sources: a `companies.yaml` list of known ATS boards, and one LLM call using the `web_search_20260209` tool restricted to the ATS domains.
-3. Code parses each URL into `(ats, board_token, job_id)` and fetches the posting from the public API. Anything that fails is dropped.
-4. Apply hard filters in code: location, posting age, exclusions, already-seen jobs, and a per-company cap (default 2 per run).
-5. Rank the survivors with the LLM against the `SearchSpec` and master resume, using a required rubric and a 0 to 100 score.
-6. Take up to 20 jobs above a minimum score. If fewer qualify, the run continues with fewer.
+1. Read the search settings from `data/search.yaml`: description, roles, cities, work authorization, title filters, minimum score, and web search queries. (The planned LLM step that turned a description into a structured spec was dropped, because the settings file is already structured.)
+2. Find companies from two sources: `companies.yaml`, and the `web_search_20260209` tool restricted to the ATS domains. Only URLs are taken from search results. Each query is recorded and not repeated within 14 days.
+3. Skip companies that are excluded or paused (see Company history below), then fetch each remaining board from its public API.
+4. Apply hard filters in code: title terms, location, posting age, already-seen jobs, and reposts.
+5. Rank up to 40 survivors per run with the LLM against the settings and master resume, using a required rubric and a 0 to 100 score. Scores are stored with a fingerprint of the resume, settings, and prompt, so a job is only re-ranked when one of those changes.
+6. Take up to 20 jobs above the minimum score, at most 5 per company, and each role only once even when a company posts copies for different locations. If fewer qualify, the run continues with fewer.
+
+**Company history.** Every company has a record of jobs seen, passed, ranked, best score, selected, applied, and skipped. After each run, a company is paused for 14 days if no open roles passed the filters, for 60 days if 4 or more roles were ranked with none reaching the minimum, and for 60 days if the user skipped 3 or more of its jobs without applying. The user can exclude a company permanently, and `companies.yaml` can exclude job aggregators for everyone.
 
 Posting text is untrusted input, since it can contain instructions aimed at AI tools. Calls that read it have no tools and return only schema-bound fields.
 

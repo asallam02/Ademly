@@ -1,0 +1,72 @@
+# Job boards Ademly checks on every run, in addition to boards found by web
+# search. Each was confirmed to have postings in Toronto, Vancouver, or Canada
+# in November 2026. Add your own: ats is greenhouse, lever, or ashby, and token
+# is the board's name in its URL, such as jobs.lever.co/<token>.
+
+- {ats: greenhouse, token: affirm, name: Affirm}
+- {ats: greenhouse, token: airbnb, name: Airbnb}
+- {ats: greenhouse, token: anthropic, name: Anthropic}
+- {ats: greenhouse, token: block, name: Block}
+- {ats: greenhouse, token: brex, name: Brex}
+- {ats: greenhouse, token: canonical, name: Canonical}
+- {ats: greenhouse, token: cloudflare, name: Cloudflare}
+- {ats: greenhouse, token: cockroachlabs, name: Cockroach Labs}
+- {ats: greenhouse, token: coinbase, name: Coinbase}
+- {ats: greenhouse, token: d2l, name: D2L}
+- {ats: greenhouse, token: databricks, name: Databricks}
+- {ats: greenhouse, token: datadog, name: Datadog}
+- {ats: greenhouse, token: dropbox, name: Dropbox}
+- {ats: greenhouse, token: elastic, name: Elastic}
+- {ats: greenhouse, token: faire, name: Faire}
+- {ats: greenhouse, token: figma, name: Figma}
+- {ats: greenhouse, token: fivetran, name: Fivetran}
+- {ats: greenhouse, token: gitlab, name: GitLab}
+- {ats: greenhouse, token: grafanalabs, name: Grafana Labs}
+- {ats: greenhouse, token: hootsuite, name: Hootsuite}
+- {ats: greenhouse, token: instacart, name: Instacart}
+- {ats: greenhouse, token: lyft, name: Lyft}
+- {ats: greenhouse, token: mongodb, name: MongoDB}
+- {ats: greenhouse, token: mozilla, name: Mozilla}
+- {ats: greenhouse, token: okta, name: Okta}
+- {ats: greenhouse, token: pagerduty, name: PagerDuty}
+- {ats: greenhouse, token: pinterest, name: Pinterest}
+- {ats: greenhouse, token: reddit, name: Reddit}
+- {ats: greenhouse, token: robinhood, name: Robinhood}
+- {ats: greenhouse, token: samsara, name: Samsara}
+- {ats: greenhouse, token: scaleai, name: Scale AI}
+- {ats: greenhouse, token: shakepay, name: Shakepay}
+- {ats: greenhouse, token: stripe, name: Stripe}
+- {ats: greenhouse, token: tailscale, name: Tailscale}
+- {ats: greenhouse, token: twilio, name: Twilio}
+- {ats: ashby, token: 1password, name: 1Password}
+- {ats: ashby, token: airbyte, name: Airbyte}
+- {ats: ashby, token: benevity, name: Benevity}
+- {ats: ashby, token: clickhouse, name: ClickHouse}
+- {ats: ashby, token: cohere, name: Cohere}
+- {ats: ashby, token: docker, name: Docker}
+- {ats: ashby, token: float, name: Float}
+- {ats: ashby, token: jobber, name: Jobber}
+- {ats: ashby, token: lightspeedhq, name: Lightspeed}
+- {ats: ashby, token: loopio, name: Loopio}
+- {ats: ashby, token: neofinancial, name: Neo Financial}
+- {ats: ashby, token: openai, name: OpenAI}
+- {ats: ashby, token: ramp, name: Ramp}
+- {ats: ashby, token: render, name: Render}
+- {ats: ashby, token: sardine, name: Sardine}
+- {ats: ashby, token: sentry, name: Sentry}
+- {ats: ashby, token: snowflake, name: Snowflake}
+- {ats: ashby, token: snyk, name: Snyk}
+- {ats: ashby, token: synctera, name: Synctera}
+- {ats: ashby, token: temporal, name: Temporal}
+- {ats: ashby, token: thinkific, name: Thinkific}
+- {ats: ashby, token: trulioo, name: Trulioo}
+- {ats: ashby, token: wealthsimple, name: Wealthsimple}
+- {ats: lever, token: achievers, name: Achievers}
+- {ats: lever, token: pointclickcare, name: PointClickCare}
+- {ats: lever, token: sonatype, name: Sonatype}
+- {ats: lever, token: spotify, name: Spotify}
+- {ats: lever, token: wattpad, name: Wattpad}
+
+# Never checked. Job aggregators repost other companies' roles, which creates
+# duplicates and applications through a middleman.
+- {ats: lever, token: jobgether, name: Jobgether, exclude: true, reason: job aggregator}
